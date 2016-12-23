@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Your Global</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		// 非破坏性地创建命名空间
+		var YourGlobal = {
+			namespace : function(ns){
+				var parts = ns.split('.'),
+					_t = this,
+					i, len;
+
+				// console.log(_t);
+				for(i = 0, len = parts.length; i < len; i++){
+					if(!_t[parts[i]]){
+						_t[parts[i]] = {};
+						console.log(_t[parts[i]]);
+					};
+					_t = _t[parts[i]];
+					
+					// console.log(_t);
+					// console.log(parts[i]);
+				}
+
+				return _t;
+			}
+		};
+
+
+		YourGlobal.namespace('Books.Maintainer');
+		// console.log(YourGlobal);
+	</script>
+</body>
+</html>
