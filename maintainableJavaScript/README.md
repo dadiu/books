@@ -41,12 +41,15 @@
    null == undefined      | true
 
 - 对象直接量，在对象中直接写出所有属性，如下：
-    var book = {
-    	title : "title name",
-    	author : "author name"
-    };
+
+                var book = {
+                    title : "title name",
+                    author : "author name"
+                };
+                
 - 数组直接量，用方括号代替Array构造函数，如下：
-    var color = ['red', 'yellow', 'blue'];
+
+                var color = ['red', 'yellow', 'blue'];
 
 
 
