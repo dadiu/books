@@ -64,3 +64,29 @@
 ---
 ## 第三章
 
+- 所有的块语句都应使用花括号，包括：
+ + if; for; while; do...while...; try...catch..finally;
+- 严格模式中，width语句是被明确禁止的
+- for循环
+ + break        不管循环迭代有没有执行完毕，立即退出循环
+ + continue     立即退出本次循环，而进入下一次迭代循环
+- for...in... 循环
+ + 缺点：不近便利对象的实例属性，同时还遍历从原型继承来的属性，当遍历自定义的属性时，往往会因为意外的结果而终止
+ + 解决方法：使用 hasOwnProperty() 方法来为for...in...循环过滤出实例属性，例如：
+
+ 				var prop;
+ 				for(prop in object){
+ 					if(object.hasOwnProperty(prop)){
+ 						console.log("Property name is " + prop);
+ 						console.log("Property value is " + object[prop]);
+ 					};
+ 				};
+
+ + 注：for...in... 是用于遍历对象的循环，禁止用于遍历数组
+
+
+
+---
+## 第四章
+
+下班啦，等下周旅游回来补充 ↖(^ω^)↗
