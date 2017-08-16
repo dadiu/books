@@ -162,7 +162,6 @@ Script
                 		};
                 
                 		// 待扩展遍历替换
-                
                 		addItem('/item/4', 'Forth item', 'strong');
                 
                 	</script>

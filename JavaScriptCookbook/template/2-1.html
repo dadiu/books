@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2-1 使用exec和全局标志来查找并突出显示一个文本字符串中的所有匹配</title>
+</head>
+
+<body>
+
+    <style lang="">
+        #searchSubmit {
+            cursor: pointer;
+            background: #ff0;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            border: 2px inset #ccc;
+        }
+
+        .found {
+            background: #ff0;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            document.getElementById("searchSubmit").onclick = doSearch;
+        };
+
+        var i = 0;
+        function doSearch() {
+            
+            var pattern = document.getElementById('pattern').value;
+            var reg = new RegExp(pattern, "g");
+
+            var searchStr = document.getElementById('incoming').value;
+            
+            var matchStr = null;
+            var resultStr = '<pre>';
+            var firstIdx = 0;
+            var lastIdx = 0;
+
+
+            while((matchStr = reg.exec(searchStr)) != null){
+                console.log(matchStr);
+                // console.log(lastIdx);
+
+                lastIdx = matchStr.index;
+                resultStr += searchStr.substring(firstIdx, lastIdx);
+
+                resultStr += '<span class="found">' + matchStr[0] + '</span>';
+
+                // 这里 matchStr.lastIndex输出为undefined,疑问待解决。
+                // firstIdx = matchStr.lastIndex;
+                firstIdx = lastIdx + matchStr[0].length;
+            }
+
+            resultStr += searchStr.substring(firstIdx, searchStr.length);
+            resultStr += '</per>';
+
+            document.getElementById("searchResult").innerHTML = resultStr;
+        };
+
+    </script>
+
+
+    <form id="textSearch">
+        <textarea id="incoming" cols="30" rows="10"></textarea>
+        <p>
+            Search pattern :
+            <input type="text" id="pattern">
+        </p>
+    </form>
+    <p id="searchSubmit">
+        search for pattern
+    </p>
+    <div id="searchResult"></div>
+</body>
+
+</html>
