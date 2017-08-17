@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2-2 使用String.replace和特殊模式在字符串中查找文本并突出显示</title>
+</head>
+
+<body>
+
+    <style lang="">
+        #searchSubmit {
+            cursor: pointer;
+            background: #ff0;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            border: 2px inset #ccc;
+        }
+
+        .found {
+            background: #ff0;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            document.getElementById("searchSubmit").onclick = doSearch;
+        };
+
+        var i = 0;
+        function doSearch() {
+            
+            var pattern = document.getElementById('pattern').value;
+            var reg = new RegExp(pattern, "g");
+
+            var searchStr = document.getElementById('incoming').value;
+
+            var resultStr = searchStr.replace(reg, '<span class="found">$&</span>');
+
+            document.getElementById("searchResult").innerHTML = resultStr;
+        };
+
+    </script>
+
+
+    <form id="textSearch">
+        <textarea id="incoming" cols="30" rows="10"></textarea>
+        <p>
+            Search pattern :
+            <input type="text" id="pattern">
+        </p>
+    </form>
+    <p id="searchSubmit">
+        search for pattern
+    </p>
+    <div id="searchResult"></div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>将表格值转为数字，并且求得加和结果</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+    window.onload = function(){
+
+        var sum = 0;
+
+        var pa = document.getElementById("table1");
+        var chArr = document.querySelectorAll("td + td");
+        var i = 0; len = chArr.length;
+
+        for(; i < len; i++){
+            
+            sum += parseFloat(chArr[i].firstChild.data);
+
+        }
+
+        console.log(sum);
+
+        var addTr = document.createElement("tr");
+        var addFirstTd = document.createElement("td");
+        var addFirstTdNode = document.createTextNode("sum:");
+        addFirstTd.appendChild(addFirstTdNode);
+
+        var addSeconTd = document.createElement("td");
+        var addSeconTdNode = document.createTextNode(sum);
+        addSeconTd.appendChild(addSeconTdNode);
+
+        addTr.appendChild(addFirstTd);
+        addTr.appendChild(addSeconTd);
+
+        pa.appendChild(addTr); 
+
+    };
+
+    </script>
+
+    <table id="table1" border="1">
+        <tr>
+            <td>one</td>
+            <td>145</td>
+        </tr>
+        <tr>
+            <td>two</td>
+            <td>55</td>
+        </tr>
+        <tr>
+            <td>three</td>
+            <td>50</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2-3 搜索特殊字符</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        window.onload = function(){
+
+            var str = "I want 1111 to find 3334 certain 5343 things 8484.";
+
+            var pattern1 = /\d{4}/g;
+            var endStr1 = str.replace(pattern1, '****');
+
+            console.log('endStr1: ' + endStr1);
+
+            var pattern2 = /\D+/g;
+            var endStr2 = str.replace(pattern2, '****');
+
+            console.log('endStr2: ' + endStr2);
+        }
+    </script>
+</body>
+</html>

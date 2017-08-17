@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3-1 把ISO 8601格式日期转换为JavaScript Date</title>
+    <style type="text/css">
+        #dateSubmit{
+            background: #ff0;
+            width: 200px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <script type="text/javascript">
+    
+    window.onload = function(){
+        document.getElementById("dateSubmit").onclick = convertDate;
+    };
+
+
+    function convertDate(){
+
+        var dtstr = document.getElementById("datestring").value;
+        var convdate = converISO8607toDate(dtstr);
+        document.getElementById("result").innerHTML = convdate;
+    };
+
+    function converISO8607toDate(dtstr){
+
+        
+        var trimStr = dtstr.replace(/(^\s+)|(\s+$)/g, '');
+        var rgStr = trimStr.replace(/\D/g, ' ');
+
+        var arrStr = rgStr.split(' ');
+        
+        if(arrStr.length < 3){
+            return 'rgStr 为错误的时间格式'
+        };
+
+        if(arrStr.length < 6){
+            arrStr[4] = 0;
+            arrStr[5] = 0;
+            arrStr[6] = 0;
+        }
+
+        
+        arrStr[1]--;
+
+        console.log(arrStr);
+        var convdt = new Date(Date.UTC(arrStr[0], arrStr[1], arrStr[2], arrStr[3], arrStr[4], arrStr[5]))
+
+        console.log(convdt);
+        return convdt.toUTCString();
+    }
+
+    </script>
+    <form>
+        <p>
+            Datestring in ISO 8601 format :
+            <input type="text" id="datestring">
+        </p>
+        <div id="dateSubmit">
+            <p>
+                Convert Date
+            </p>
+        </div>
+        <div id="result"></div>
+    </form>
+</body>
+</html>
