@@ -20,3 +20,7 @@
         - [3-2 在一个setInterval定时器参数内使用一个匿名函数](template/3-2.html)
 
 - [第4章  使用Number和Math](JavaScriptCookbook/chapter4.md)
+
+- [第5章  使用数组和循环](JavaScriptCookbook/chapter5.md)
+
+- [第6章  使用JavaScript函数构建重要性](JavaScriptCookbook/chapter6.md)

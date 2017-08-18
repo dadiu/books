@@ -1,17 +1,17 @@
 《javascript经典实例》
 ======
 
-# 第2章  使用正则表达式
+## 第2章  使用正则表达式
 
 - 正则方法对比
 
-方法名             |   说明      |   返回
---|--|--
-reg.test()          |   查找对应的字符串中是否存在       |   Boolean
-reg.exec()          |   RegExp对象的方法，查找并返回当前匹配的结果。返回数组有3个属性 : <br/>index : 当前匹配项的位置；<br/>lastIndex : 当前匹配项结束的位置,即index+当前匹配的长度；<br/>input : 需要匹配的对象(百度说必需在g的情况下才会有，但做例子的时候并没有这key的出现)  | 不存在返回null，<br/>存在则返回长度为1的数组
-reg.match()         |   String对象的方法，查找并返回所有匹配的结果    |   不存在返回null，<br/>存在返回长度为所有匹配项的数组
+    方法名             |   说明      |   返回
+    --|--|--
+    reg.test()          |   查找对应的字符串中是否存在       |   Boolean
+    reg.exec()          |   RegExp对象的方法，查找并返回当前匹配的结果。返回数组有3个属性 : <br/>index : 当前匹配项的位置；<br/>lastIndex : 当前匹配项结束的位置,即index+当前匹配的长度；<br/>input : 需要匹配的对象(百度说必需在g的情况下才会有，但做例子的时候并没有这key的出现)  | 不存在返回null，<br/>存在则返回长度为1的数组
+    reg.match()         |   String对象的方法，查找并返回所有匹配的结果    |   不存在返回null，<br/>存在返回长度为所有匹配项的数组
 
-## 2.4 查找一个模式中的所有实例，以t开头以e结尾,中间可以有多个字符的单词或其他文本
+- 查找一个模式中的所有实例，以t开头以e结尾,中间可以有多个字符的单词或其他文本
 
         var str = 'this is a template, this is the time and that is the time';
         var pattern = /t\w*e/g;
@@ -25,14 +25,14 @@ reg.match()         |   String对象的方法，查找并返回所有匹配的�
         }
 
 
-## 2.5 使用新字符串替换所有匹配的子字符串
+- 使用新字符串替换所有匹配的子字符串
 
     var searchStr = "now is the time, this is the time";
     var reg = /t\w{2}e/g;
     var resultStr = searchStr.replace(reg, 'place');
     console.log(resultStr);
 
-## 2.6 使用捕获圆括号交换一个字符串中的单词
+- 使用捕获圆括号交换一个字符串中的单词
 
 - eg 2.6-1
 

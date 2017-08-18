@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4-2 将一个SVG圆放入到一个div元素中</title>
+    <style>
+    #elem{
+        width: 400px;
+        height: 200px;
+        border: 1px solid #ccc;
+    }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+
+        function compStyle(elemId, property){
+
+            var elem = document.getElementById(elemId);
+            var style;
+
+            if(window.getComputedStyle){
+                style = window.getComputedStyle(elem, null).getPropertyValue(property);
+            } 
+            else if(elem.currentStyle){
+                style = elem.currentStyle[property];
+            }
+
+
+            return parseInt(style);
+        }
+
+        window.onload = function(){
+            
+            var height = compStyle('elem', 'height');
+            var width = compStyle('elem', 'width');
+
+            var x = width/2;
+            var y = height/2;
+
+            var R = Math.min(width, height)/2;
+            var circleDom = document.getElementById("circ");
+            circleDom.setAttribute("r", R);
+            circleDom.setAttribute("cx", x);
+            circleDom.setAttribute("cy", y);
+
+        }
+    </script>
+    
+    <div id="elem">
+        <svg xmlns="http://wwww.w3.org/2000/svg" width="600" height="600">
+            <circle id="circ" width="10" height="10" r="10" fill="orange"/>
+        </svg>
+    </div>
+</body>
+</html>
