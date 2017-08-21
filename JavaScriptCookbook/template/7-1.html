@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7-1 捕获鼠标电机王诶之并将元素移动到该位置</title>
+    <style>
+    #info{
+        width: 100px;
+        height: 100px;
+        background: orange;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    </style>
+</head>
+<body>
+
+    <script>
+        window.onload = function(){
+            document.onclick = moveBoxFn;
+        }
+
+        function moveBoxFn(env){
+            env = env || window.event;
+            var x = 0; y = 0;
+
+            // firefox chrome opera safari
+            if(env.pageX){
+                x = env.pageX;
+                y = env.pageY;
+            }
+            else if(env.clientX){   // IE8
+                var offsetX = 0;
+                var offsetY = 0;
+
+                if(document.documentElement.offsetLeft){ // IE6 及其以上
+                    offsetX = document.documentElement.offsetLeft;
+                    offsetY = document.documentElement.offsetTop;
+                }
+                else if(document.body){ // IE6 以下
+                    offsetX = document.body.scrollLeft;
+                    offsetY = document.body.scrollTop;
+                }
+
+                x = env.clientX + offsetX;
+                y = env.clientY + offsetY;
+            }
+
+            var box = document.getElementById("info");
+            box.setAttribute("style", "left:" + x + "px; top:" + y + "px;");
+        }
+
+    </script>
+    <div id="info"></div>
+</body>
+</html>

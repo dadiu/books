@@ -24,3 +24,5 @@
 - [第5章  使用数组和循环](JavaScriptCookbook/chapter5.md)
 
 - [第6章  使用JavaScript函数构建重要性](JavaScriptCookbook/chapter6.md)
+
+- [第7章  处理事件](JavaScriptCookbook/chapter7.md)

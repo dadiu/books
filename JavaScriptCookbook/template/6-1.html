@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>6-1 标量参数和数组参数的功能性区别 P109</title>
+</head>
+<body>
+    <script>
+
+    window.onload=function(){
+
+        var items = new Array("apple","orange","lime");
+        var sep = "*";
+        
+        concatString(items, sep);
+        
+        console.log('items : ' + items);
+        console.log('sep: ' + sep);
+    }
+
+    function concatString(strings, sep){
+
+        var i = 0; 
+        var len = strings.length;
+        var newString = '';
+
+        for(; i<len; i++){
+
+            newString += strings[i] + sep;
+
+        }
+
+        sep = newString
+        strings[len]=newString;
+    }
+    </script>
+</body>
+</html>
